@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Social Boost</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes fade-in-up {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-up {
+      animation: fade-in-up 0.6s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+  <!-- Hero Section -->
+  <section class="text-center py-10 bg-gradient-to-r from-purple-500 to-indigo-600 text-white">
+    <h1 class="text-4xl font-bold mb-2">Boost Your Social Media Followers</h1>
+    <p class="text-lg">Get real followers for your favorite platforms</p>
+  </section>
+
+  <!-- Main Form Section -->
+  <section class="max-w-xl mx-auto mt-10 p-6 bg-white rounded-2xl shadow-xl">
+    <form id="boostForm" class="space-y-4">
+      <div>
+        <label class="block font-semibold mb-1">Choose Social Media</label>
+        <select id="platform" class="w-full border rounded p-2">
+          <option value="Instagram">Instagram</option>
+          <option value="Facebook">Facebook</option>
+          <option value="Twitter">Twitter</option>
+          <option value="TikTok">TikTok</option>
+          <option value="YouTube">YouTube</option>
+          <option value="LinkedIn">LinkedIn</option>
+          <option value="Snapchat">Snapchat</option>
+          <option value="Pinterest">Pinterest</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="block font-semibold mb-1">Profile Link</label>
+        <input type="url" id="link" class="w-full border rounded p-2" placeholder="https://..." required />
+      </div>
+
+      <div>
+        <label class="block font-semibold mb-1">Choose Package</label>
+        <div class="flex gap-4 flex-wrap">
+          <label><input type="radio" name="package" value="200" class="mr-1" /> 200</label>
+          <label><input type="radio" name="package" value="400" class="mr-1" /> 400</label>
+          <label><input type="radio" name="package" value="600" class="mr-1" /> 600</label>
+          <label><input type="radio" name="package" value="1000" class="mr-1" /> 1000</label>
+        </div>
+      </div>
+
+      <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 transition duration-300 transform hover:scale-105">
+        Get Followers
+      </button>
+    </form>
+  </section>
+
+  <!-- Live Follower Counter -->
+  <section class="max-w-xl mx-auto mt-10 p-6 bg-white rounded-2xl shadow-xl text-center">
+    <h2 class="text-xl font-bold mb-4">Live Follower Counter</h2>
+    <div class="text-4xl font-mono text-green-600" id="followerCounter">0</div>
+    <p class="text-sm text-gray-500 mt-2">Followers added in real-time</p>
+  </section>
+
+  <!-- Promotional Ad Section -->
+  <section class="mt-16 bg-yellow-100 text-yellow-800 p-8 text-center rounded-xl shadow-xl max-w-3xl mx-auto reveal">
+    <h2 class="text-2xl font-bold mb-2 animate-pulse">🔥 Special Offer: 1000 Followers Free!</h2>
+    <p class="mb-4">Limited Time Only! No Credit Card. No Passwords. 100% Safe.</p>
+    <button  class="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-6 rounded shadow transition duration-300 transform hover:scale-105">
+   <a href="https://www.profitableratecpm.com/u8i4b0sd?key=229a64773b01c60ffed7b18ec3a2f8e5">   Claim Now</a>
+    </button>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="mt-16 bg-white p-10">
+    <h2 class="text-2xl font-bold text-center mb-6">What Our Users Say</h2>
+    <div class="grid md:grid-cols-2 gap-6 text-gray-700">
+      <div class="p-4 bg-gray-100 rounded-xl shadow reveal">
+        “Got 1000 followers in minutes. Totally works!” — Alex
+      </div>
+      <div class="p-4 bg-gray-100 rounded-xl shadow reveal">
+        “I was skeptical but it helped grow my TikTok fast!” — Jessy
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="mt-16 p-10 bg-gray-50">
+    <h2 class="text-2xl font-bold text-center mb-6">FAQs</h2>
+    <div class="space-y-4 max-w-2xl mx-auto">
+      <details class="bg-white p-4 rounded shadow reveal">
+        <summary class="cursor-pointer font-semibold">Are the followers real?</summary>
+        <p class="mt-2">Yes, we use organic methods to grow your presence.</p>
+      </details>
+      <details class="bg-white p-4 rounded shadow reveal">
+        <summary class="cursor-pointer font-semibold">Is this safe?</summary>
+        <p class="mt-2">Absolutely. We never ask for passwords.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="mt-16 p-10 bg-indigo-600 text-white text-center">
+    <h2 class="text-2xl font-bold mb-4">Need Help?</h2>
+    <p>Email us at support@socialboost.com</p>
+  </section>
+
+  <!-- JavaScript Section -->
+  <script>
+    // Form submit → Send to Telegram
+    document.getElementById('boostForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const platform = document.getElementById('platform').value;
+      const link = document.getElementById('link').value;
+      const pkg = document.querySelector('input[name="package"]:checked')?.value;
+
+      if (!pkg) {
+        alert('Please select a package.');
+        return;
+      }
+
+      const message = `New Request:\nPlatform: ${platform}\nLink: ${link}\nPackage: ${pkg}`;
+      const botToken = '8060111980:AAH7y1iGOxE07hopGpFCsAZVDuUsYI2TX-s';
+      const chatId = '7330272528';
+
+      fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: chatId,
+          text: message,
+          disable_notification: true
+        })
+      });
+
+      alert('Request received! You will see results soon.');
+    });
+
+    // Animate counter
+    let count = 0;
+    const target = 5240;
+    const counter = document.getElementById('followerCounter');
+
+    function animateCounter() {
+      if (count < target) {
+        count += Math.floor(Math.random() * 5) + 1;
+        counter.textContent = count;
+        setTimeout(animateCounter, 50);
+      } else {
+        counter.textContent = target;
+      }
+    }
+    animateCounter();
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in-up');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.reveal').forEach(el => {
+      el.classList.add('opacity-0');
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
